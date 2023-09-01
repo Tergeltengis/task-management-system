@@ -1,4 +1,5 @@
 import express from "express";
+import Task from "./task.model";
 
 export const app = express();
 
@@ -7,7 +8,11 @@ app.get("/", (req, res) => {
 });
 
 // get tasks
-app.get("/tasks", (req, res) => {
-  console.log("working ");
-  res.send({ title: "test title", desc: "test desc" });
+app.get("/tasks", async (_req, res) => {
+  try {
+    const tasks = await Task.find({});
+    res.send(tasks);
+  } catch (error) {
+    console.error("Error", error);
+  }
 });
