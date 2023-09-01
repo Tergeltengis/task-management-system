@@ -1,11 +1,12 @@
+import { Request, Response } from "express";
 import {
   getTasksService,
   addTaskService,
   deleteTaskService,
   getOwnTasksService,
   updateTaskService,
+  assignTaskService,
 } from "../services";
-import { Request, Response } from "express";
 
 export const getTasks = async (request: Request, response: Response) => {
   try {
@@ -74,5 +75,22 @@ export const getOwnTasks = async (request: Request, response: Response) => {
     response
       .status(500)
       .send({ error: "Unable to retrieve tasks. Please try again later." });
+  }
+};
+
+export const assignTask = async (request: Request, response: Response) => {
+  try {
+    const assignee = request.headers.user as string;
+    const assigned = request.body.assigned;
+    const taskId = request.params.taskId;
+    const task = await assignTaskService(taskId, assignee, assigned);
+
+    response.status(200).send(task);
+  } catch (error) {
+    console.error("Error assign task:", error);
+
+    response
+      .status(500)
+      .send({ error: "Task assign failed. Please try again later." });
   }
 };
