@@ -1,5 +1,5 @@
 import express from "express";
-import Task from "./task.model";
+import Task from "./models/task.model";
 
 export const app = express();
 
