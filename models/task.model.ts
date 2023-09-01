@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 import { commentSchema } from "./comment.model";
-import User from "./user.model";
+import { User } from "./user.model";
 
 const taskSchema = new Schema({
   taskName: { type: String, required: true },
@@ -21,5 +21,4 @@ const taskSchema = new Schema({
   comments: [commentSchema],
   createdAt: { type: Date, default: Date.now },
 });
-const Task = model("tasks", taskSchema);
-export default Task;
+export const Task = model("tasks", taskSchema);
