@@ -4,7 +4,7 @@
   "description": "only backend",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon index.ts"
+    "start": "nodemon server.ts"
   },
   "author": "Tergeltengis",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0"
   }
 }
