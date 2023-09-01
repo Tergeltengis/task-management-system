@@ -21,7 +21,6 @@ export const getOwnTasksService = (assigned: string) => {
   return Task.find({}).where("assigned").equals(assigned);
 };
 
-
 export const assignTaskService = (
   id: string,
   assignee: string,

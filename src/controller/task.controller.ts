@@ -8,7 +8,7 @@ import {
   assignTaskService,
 } from "../services";
 
-export const getTasks = async (request: Request, response: Response) => {
+export const getTasks = async (_request: Request, response: Response) => {
   try {
     const tasks = await getTasksService();
     response.send(tasks);
@@ -88,7 +88,6 @@ export const assignTask = async (request: Request, response: Response) => {
     response.status(200).send(task);
   } catch (error) {
     console.error("Error assign task:", error);
-
     response
       .status(500)
       .send({ error: "Task assign failed. Please try again later." });
