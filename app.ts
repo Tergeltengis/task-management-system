@@ -16,3 +16,32 @@ app.get("/tasks", async (_req, res) => {
     console.error("Error", error);
   }
 });
+// create task
+app.post("create", async (req, res) => {
+  try {
+    const newTask = new Task(req.body).save();
+    res.send(newTask);
+  } catch (error) {
+    console.error("Error", error);
+  }
+});
+
+// update task
+app.patch("/:id", async (req, res) => {
+  try {
+    const updatedData = await Task.findByIdAndUpdate(req.params.id, req.body);
+    res.send(updatedData);
+  } catch (error) {
+    console.error("Error", error);
+  }
+});
+
+// delete task
+app.delete("/:id", async (req, res) => {
+  try {
+    await Task.findByIdAndDelete(req.params.id);
+    res.send({ message: "Deleted" });
+  } catch (error) {
+    console.error("Error", error);
+  }
+});
