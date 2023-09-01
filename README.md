@@ -10,7 +10,7 @@ This Task Management System (TMS) backend is built using Express.js and MongoDB.
 - Task assignment to users
 - Task status management (e.g., "todo," "in progress," "done")
 - Task comments and discussions
-  
+
 ❌ NO
 
 - Authentication/Authorization
@@ -18,6 +18,13 @@ This Task Management System (TMS) backend is built using Express.js and MongoDB.
 - Unit test (jest)
 - Some fields doesn't include (`task.created_by`, `user.email` ... etc)
 
+## Documentation
+
+- High level architecture
+- Database diagram
+- Technical design document
+  
+[LINK](/docs/plan.md)
 
 ## Toolchain
 
@@ -31,11 +38,7 @@ This Task Management System (TMS) backend is built using Express.js and MongoDB.
 
 1. Run `yarn` to install dependencies
 
-2. Create `.env` file with your database URI or following content:
-
-```
-MONGODB_HOST=mongodb://localhost:27017
-```
+2. Create `.env` file with your database URI or NOT
 
 3. Run `yarn start` to run.
 
