@@ -16,6 +16,7 @@ This Task Management System (TMS) backend is built using Express.js and MongoDB.
 - Authentication/Authorization
 - Middleware
 - Unit test (jest)
+- Some fields doesn't include (`task.created_by`, `user.email` ... etc)
 
 
 ## Toolchain
