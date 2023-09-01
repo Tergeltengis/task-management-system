@@ -5,26 +5,26 @@ export const getTasksService = async () => {
   return tasks;
 };
 
-export const updateTaskService = (id: string, updatedData: any) => {
-  return Task.findByIdAndUpdate(id, updatedData);
+export const updateTaskService = async (id: string, updatedData: any) => {
+  return await Task.findByIdAndUpdate(id, updatedData);
 };
 
-export const addTaskService = (data: any) => {
-  return new Task(data).save();
+export const addTaskService = async (data: any) => {
+  return await new Task(data).save();
 };
 
-export const deleteTaskService = (id: string) => {
-  return Task.findByIdAndDelete(id);
+export const deleteTaskService = async (id: string) => {
+  return await Task.findByIdAndDelete(id);
 };
 
-export const getOwnTasksService = (assigned: string) => {
-  return Task.find({}).where("assigned").equals(assigned);
+export const getOwnTasksService = async (assigned: string) => {
+  return await Task.find({}).where("assigned").equals(assigned);
 };
 
-export const assignTaskService = (
+export const assignTaskService = async (
   id: string,
   assignee: string,
   assigned: string
 ) => {
-  return Task.findByIdAndUpdate(id, { assignee, assigned });
+  return await Task.findByIdAndUpdate(id, { assignee, assigned });
 };
