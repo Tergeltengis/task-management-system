@@ -25,6 +25,9 @@ export const updateTask = async (request: Request, response: Response) => {
   const updatedData = request.body;
   try {
     const updatedTaskData = await updateTaskService(id, updatedData);
+    if (!updatedTaskData) {
+      response.status(404).send({ error: "Task not found" });
+    }
     response.status(200).send(updatedTaskData);
   } catch (error) {
     console.error("Error update task:", error);
@@ -69,6 +72,9 @@ export const getOwnTasks = async (request: Request, response: Response) => {
   const userId = request.headers.userId as string;
   try {
     const tasks = await getOwnTasksService(userId);
+    if (!tasks || tasks?.length === 0) {
+      response.status(404).send({ error: "You don't have assigned tasks" });
+    }
     response.status(200).send(tasks);
   } catch (error) {
     console.error("Error retrieving tasks:", error);
