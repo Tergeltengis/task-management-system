@@ -1,0 +1,11 @@
+{
+  "name": "task-management-system",
+  "version": "1.0.0",
+  "description": "only backend",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node index.ts"
+  },
+  "author": "Tergeltengis",
+  "license": "ISC"
+}
